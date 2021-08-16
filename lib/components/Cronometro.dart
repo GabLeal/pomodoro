@@ -34,32 +34,37 @@ class Cronometro extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (!store.iniciado)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
-                    child: Cronometrobotao(
-                      texto: 'Iniciar',
-                      icone: Icons.play_arrow,
-                      click: store.iniciar,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (!store.iniciado)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Cronometrobotao(
+                        texto: 'Iniciar',
+                        icone: Icons.play_arrow,
+                        click: store.iniciar,
+                      ),
                     ),
-                  ),
-                if (store.iniciado)
+                  if (store.iniciado)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Cronometrobotao(
+                          texto: 'Parar',
+                          icone: Icons.stop,
+                          click: store.parar),
+                    ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: const EdgeInsets.only(left: 10.0),
                     child: Cronometrobotao(
-                        texto: 'Parar', icone: Icons.stop, click: store.parar),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
-                  child: Cronometrobotao(
-                      texto: 'Reiniciar',
-                      icone: Icons.refresh,
-                      click: store.reiniciar),
-                )
-              ],
+                        texto: 'Reiniciar',
+                        icone: Icons.refresh,
+                        click: store.reiniciar),
+                  )
+                ],
+              ),
             )
           ],
         ),

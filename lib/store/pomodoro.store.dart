@@ -24,7 +24,7 @@ abstract class _PomodoroStore with Store {
   int tempoDescanso = 1;
 
   @observable
-  TipoIntervalo tipoIntervalo = TipoIntervalo.TRABALHO;
+  TipoIntervalo tipoIntervalo = TipoIntervalo.DESCANSO;
 
   Timer? cronometro;
 
