@@ -5,5 +5,12 @@ A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Fra
 
 ## Objetivos
 Esse projeto tem como objetivo testar alguns recursos da versão 2.0  do Flutter e da inicio a aprendizado de Teste.
-- [x] testes de unidade
+- [x] Testes de unidade
 - [ ] Testes de Widget - Em breve
+
+## Versão Web
+<img src="/pomodoro-web.png" height="500">
+
+## Versão mobile
+<img src="/pomodoro-gif-mobile.gif" height="500">
+
