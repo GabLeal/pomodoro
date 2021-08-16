@@ -1,16 +1,9 @@
 # pomodoro
 
-A new Flutter project.
+A Técnica Pomodoro é um método de gerenciamento de tempo desenvolvido por Francesco Cirillo no final dos anos 1980. A técnica consiste na utilização de um cronômetro para dividir o trabalho em períodos de tempo, separados por breves intervalos.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Objetivos
+Esse projeto tem como objetivo testar alguns recursos da versão 2.0  do Flutter e da inicio a aprendizado de Teste.
+- [x] testes de unidade
+- [ ] Testes de Widget - Em breve
