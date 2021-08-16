@@ -3,7 +3,11 @@ import 'package:pomodoro/store/pomodoro.store.dart';
 
 main() {
   group('Store Pomodoro teste', () {
-    PomodoroStore store = PomodoroStore();
+    late PomodoroStore store;
+
+    setUp(() {
+      store = PomodoroStore();
+    });
 
     test('check pomodoro "iniciado" is FALSE', () {
       expect(store.iniciado, false);
@@ -27,6 +31,7 @@ main() {
     });
 
     test('Refresh pomodoro', () {
+      store.iniciar();
       store.reiniciar();
 
       expect(store.iniciado, false);
@@ -48,6 +53,7 @@ main() {
     });
 
     test('Increment rest hours pomodoro', () {
+      store.iniciar();
       store.tempoDescanso = 1;
 
       store.incrementarTempoDescanso();
@@ -57,10 +63,11 @@ main() {
     });
 
     test('Decrement rest hours pomodoro', () {
+      store.iniciar();
       store.tempoDescanso = 0;
 
       store.decrementarTempoDescanso();
-      expect(store.tempoTrabalho, 0);
+      expect(store.tempoDescanso, 0);
     });
   });
 }
