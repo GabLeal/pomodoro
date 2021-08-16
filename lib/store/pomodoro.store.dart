@@ -44,7 +44,7 @@ abstract class _PomodoroStore with Store {
   @action
   void iniciar() {
     iniciado = true;
-    cronometro = Timer.periodic(Duration(microseconds: 50), (timer) {
+    cronometro = Timer.periodic(Duration(seconds: 1), (timer) {
       if (_terminouContagemRegressiva()) {
         _trocarTipoIntervalo();
       } else {
