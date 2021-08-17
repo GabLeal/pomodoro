@@ -43,6 +43,7 @@ class Cronometro extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 10.0),
                       child: Cronometrobotao(
+                        key: Key("botaoIniciar"),
                         texto: 'Iniciar',
                         icone: Icons.play_arrow,
                         click: store.iniciar,

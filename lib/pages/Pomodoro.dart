@@ -24,10 +24,10 @@ class Pomodoro extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     EntradaTempo(
+                      key: Key('EntradaTempoTrabalho'),
                       titulo: 'Trabalho',
                       valor: store.tempoTrabalho,
-                      inc: store.iniciado &&
-                              store.tipoIntervalo == TipoIntervalo.TRABALHO
+                      inc: store.bloquearBotoesTempoTrabalho
                           ? null
                           : store.incrementarTempoTrabalho,
                       dec: store.iniciado && store.estaTrabalhando()
@@ -35,10 +35,10 @@ class Pomodoro extends StatelessWidget {
                           : store.decrementarTempoTrabalho,
                     ),
                     EntradaTempo(
+                      key: Key('EntradaTempoDescanso'),
                       titulo: 'Descanso',
                       valor: store.tempoDescanso,
-                      inc: store.iniciado &&
-                              store.tipoIntervalo == TipoIntervalo.DESCANSO
+                      inc: store.bloquearBotoesTempoDescanso
                           ? null
                           : store.incrementarTempoDescanso,
                       dec: store.iniciado && store.estaDescansando()

@@ -9,6 +9,23 @@ part of 'pomodoro.store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$PomodoroStore on _PomodoroStore, Store {
+  Computed<bool>? _$bloquearBotoesTempoTrabalhoComputed;
+
+  @override
+  bool get bloquearBotoesTempoTrabalho =>
+      (_$bloquearBotoesTempoTrabalhoComputed ??= Computed<bool>(
+              () => super.bloquearBotoesTempoTrabalho,
+              name: '_PomodoroStore.bloquearBotoesTempoTrabalho'))
+          .value;
+  Computed<bool>? _$bloquearBotoesTempoDescansoComputed;
+
+  @override
+  bool get bloquearBotoesTempoDescanso =>
+      (_$bloquearBotoesTempoDescansoComputed ??= Computed<bool>(
+              () => super.bloquearBotoesTempoDescanso,
+              name: '_PomodoroStore.bloquearBotoesTempoDescanso'))
+          .value;
+
   final _$iniciadoAtom = Atom(name: '_PomodoroStore.iniciado');
 
   @override
@@ -187,7 +204,9 @@ hora: ${hora},
 minuto: ${minuto},
 tempoTrabalho: ${tempoTrabalho},
 tempoDescanso: ${tempoDescanso},
-tipoIntervalo: ${tipoIntervalo}
+tipoIntervalo: ${tipoIntervalo},
+bloquearBotoesTempoTrabalho: ${bloquearBotoesTempoTrabalho},
+bloquearBotoesTempoDescanso: ${bloquearBotoesTempoDescanso}
     ''';
   }
 }

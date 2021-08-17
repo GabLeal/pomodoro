@@ -98,6 +98,16 @@ abstract class _PomodoroStore with Store {
     }
   }
 
+  @computed
+  bool get bloquearBotoesTempoTrabalho {
+    return iniciado && tipoIntervalo == TipoIntervalo.TRABALHO;
+  }
+
+  @computed
+  bool get bloquearBotoesTempoDescanso {
+    return iniciado && tipoIntervalo == TipoIntervalo.DESCANSO;
+  }
+
   bool estaTrabalhando() {
     return tipoIntervalo == TipoIntervalo.TRABALHO;
   }
