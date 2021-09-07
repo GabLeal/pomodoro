@@ -9,28 +9,28 @@ main() {
       store = PomodoroStore();
     });
 
-    test('check pomodoro "iniciado" is FALSE', () {
+    test('should check pomodoro "iniciado" is FALSE', () {
       expect(store.iniciado, false);
     });
 
-    test('check pomodoro "cronometro" is null', () {
+    test('should check pomodoro "cronometro" is null', () {
       expect(store.cronometro, isNull);
     });
 
-    test('Initializar pomodoro', () {
+    test('should initialize pomodoro', () {
       store.iniciar();
 
       expect(store.iniciado, true);
       expect(store.cronometro, isNotNull);
     });
 
-    test('Stop pomodoro', () {
+    test('should stop pomodoro', () {
       store.iniciar();
       store.parar();
       expect(store.iniciado, false);
     });
 
-    test('Refresh pomodoro', () {
+    test('should refresh pomodoro', () {
       store.iniciar();
       store.reiniciar();
 
@@ -38,21 +38,21 @@ main() {
       expect(store.minuto, 0);
     });
 
-    test('Increment work hours pomodoro', () {
+    test('should increment work hours pomodoro', () {
       store.tempoTrabalho = 1;
 
       store.incrementarTempoTrabalho();
       expect(store.tempoTrabalho, 2);
     });
 
-    test('Decrement work hours pomodoro', () {
+    test('should decrement work hours pomodoro', () {
       store.tempoTrabalho = 0;
 
       store.decrementarTempoTrabalho();
       expect(store.tempoTrabalho, 0);
     });
 
-    test('Increment rest hours pomodoro', () {
+    test('should increment rest hours pomodoro', () {
       store.iniciar();
       store.tempoDescanso = 1;
 
@@ -62,7 +62,7 @@ main() {
       expect(store.tempoDescanso, 4);
     });
 
-    test('Decrement rest hours pomodoro', () {
+    test('should decrement rest hours pomodoro', () {
       store.iniciar();
       store.tempoDescanso = 0;
 

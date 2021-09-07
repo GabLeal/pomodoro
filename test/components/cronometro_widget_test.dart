@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pomodoro/components/Cronometro.dart';
 import 'package:pomodoro/components/EntradaTempo.dart';
 import 'package:pomodoro/pages/Pomodoro.dart';
-
 import 'package:pomodoro/store/pomodoro.store.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +20,7 @@ main() {
         ),
       );
 
-  testWidgets('Testa se botao "parar" esta desabilitado',
+  testWidgets('should initialize "parar" button as disabled',
       (WidgetTester tester) async {
     // pumpWidget() renderiza a UI dado um widget.
     await tester.pumpWidget(makeTestable(Cronometro()));
@@ -33,7 +30,9 @@ main() {
     expect(iconFinder, findsNothing);
   });
 
-  testWidgets('Testa se iniciar foi clicado', (WidgetTester tester) async {
+  testWidgets(
+      'should show button "parar" and hide button "iniciar" when iniciar is cliked',
+      (WidgetTester tester) async {
     // pumpWidget() renderiza a UI dado um widget.
     await tester.runAsync(() async {
       await tester.pumpWidget(makeTestable(Cronometro()));
@@ -51,7 +50,30 @@ main() {
   });
 
   testWidgets(
-      'deve desabilitar widget EntrataTempo trabalho se o intervalo for de trabalho',
+      'should hide stop button and show start button when restart is clicked',
+      (WidgetTester tester) async {
+    // pumpWidget() renderiza a UI dado um widget.
+    await tester.runAsync(() async {
+      await tester.pumpWidget(makeTestable(Cronometro()));
+
+      await tester.tap(find.byKey(Key('botaoIniciar')));
+
+      await tester.pumpAndSettle(const Duration(seconds: 4));
+
+      await tester.tap(find.byKey(Key('botaoReiniciar')));
+
+      await tester.pumpAndSettle(const Duration(seconds: 4));
+
+      final Finder iconFinderPlay = find.byIcon(Icons.play_arrow);
+      final Finder iconFinderStop = find.byIcon(Icons.stop);
+
+      expect(iconFinderPlay, findsOneWidget);
+      expect(iconFinderStop, findsNothing);
+    });
+  });
+
+  testWidgets(
+      'should disable "EntrataTempo trabalho" widget if the "trabalho" interval',
       (WidgetTester tester) async {
     // pumpWidget() renderiza a UI dado um widget.
 
@@ -78,7 +100,7 @@ main() {
   });
 
   testWidgets(
-      'deve desabilitar widget EntrataTempo descanso se o intervalo for de descanso',
+      'should disable "EntrataTempo descanso" widget if the "descanso" interval',
       (WidgetTester tester) async {
     // pumpWidget() renderiza a UI dado um widget.
 
